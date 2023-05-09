@@ -26,13 +26,8 @@ public class MovePlayer : MonoBehaviour
     void FixedUpdate()
     {
         // We call the function 'moveCharacter' in FixedUpdate for Physics movement
-        moveChar(movement);
+        rb.velocity = direction * speed * Time.deltaTime;
     }
 
-    void moveChar(Vector3 direction)
-    {
-        // We multiply the 'speed' variable to the Rigidbody's velocity...
-        // and also multiply 'Time.fixedDeltaTime' to keep the movement consistant on all devices
-        rb.velocity = direction * speed * Time.fixedDeltaTime;
-    }
+    
 }
