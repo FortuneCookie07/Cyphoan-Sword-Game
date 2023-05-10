@@ -8,6 +8,10 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform cam;
 
     public float speed = 12f;
+
+    public float walkSpeed = 12f;
+    public float runSpeed = 24f; 
+    public float slideSpeed = 30f; 
     
     //private bool canJump;
     //private bool onGround; 
@@ -18,7 +22,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
-    
+
+    public bool debugFlag = false; 
+    private bool isRun = false; 
+    private bool isSlide = false; 
+    public float slideTimer = 0f; 
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -60,15 +69,57 @@ public class ThirdPersonMovement : MonoBehaviour
             //shift to sprint but only when on the ground (no midair movement increase...theoretically)
             if (Input.GetKeyDown(KeyCode.LeftShift) && controller.isGrounded)
             {
-                speed = 30f;
+                isRun = true; 
+                speed = runSpeed;
+                if (debugFlag)
+                    Debug.Log("is running");
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift) && controller.isGrounded && isRun)
+            {
+                isRun = false;
+                speed = walkSpeed; 
+                if (debugFlag)
+                    Debug.Log("is not running");
+            }
+            
+            //Sliding Code
+            if(isRun && controller.isGrounded && Input.GetKeyDown(KeyCode.V) && !isSlide)
+            {
+                speed = slideSpeed; 
+                isSlide = true; 
+                if (debugFlag)
+                    Debug.Log("slide start");
+            }
+            if (isSlide && controller.isGrounded)
+            {
+                slideTimer += Time.deltaTime; 
+                if (slideTimer > 2f)
+                {
+                    isSlide = false;
+                    slideTimer = 0f;
+                    speed = runSpeed;
+                    if (debugFlag)
+                        Debug.Log("slide end");
+                }
+            }
+            if (isSlide && !controller.isGrounded)
+            {
+                isSlide = false;
+                slideTimer = 0; 
+                if (debugFlag)
+                    Debug.Log("slide jump");
+            }
+            if(controller.isGrounded && speed == slideSpeed && !isSlide)
+            {
+                if(isRun)
+                    speed = runSpeed;
+                else
+                    speed = walkSpeed; 
             }
 
             //moves mr dontai west in the direction our camera is facing
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
-
-        
-
     }
 
     void FixedUpdate()
