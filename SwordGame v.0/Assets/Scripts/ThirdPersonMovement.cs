@@ -73,20 +73,7 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             
             //shift to sprint but only when on the ground (no midair movement increase...theoretically)
-            if (Input.GetKeyDown(KeyCode.LeftShift) && controller.isGrounded)
-            {
-                isRun = true; 
-                speed = runSpeed;
-                if (debugFlag)
-                    Debug.Log("is running");
-            }
-            if (Input.GetKeyUp(KeyCode.LeftShift) && controller.isGrounded && isRun)
-            {
-                isRun = false;
-                speed = walkSpeed; 
-                if (debugFlag)
-                    Debug.Log("is not running");
-            }
+            playerRun(); 
             
             //Sliding Code
             playerSlide(); 
@@ -153,6 +140,24 @@ public class ThirdPersonMovement : MonoBehaviour
                     slideCoolDown = false; 
                 }
                 slideCoolDownTimer -= Time.deltaTime; 
+            }
+    }
+
+    void playerRun()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && controller.isGrounded)
+            {
+                isRun = true; 
+                speed = runSpeed;
+                if (debugFlag)
+                    Debug.Log("is running");
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift) && controller.isGrounded && isRun)
+            {
+                isRun = false;
+                speed = walkSpeed; 
+                if (debugFlag)
+                    Debug.Log("is not running");
             }
     }
 
