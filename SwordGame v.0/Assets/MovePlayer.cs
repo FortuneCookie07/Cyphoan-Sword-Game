@@ -7,7 +7,7 @@ public class MovePlayer : MonoBehaviour
     public float speed = 5f; 
     public Rigidbody rb;
     
-    public int jumpForce = 50;
+    public int force = 50;
     private bool canJump;
     private bool onGround; 
     // Start is called before the first frame update
@@ -28,7 +28,6 @@ public class MovePlayer : MonoBehaviour
             canJump = true;
             onGround = false;
         }
-
     }
 
     void FixedUpdate()
@@ -43,7 +42,7 @@ public class MovePlayer : MonoBehaviour
         if(canJump)
         {
             canJump = false;
-            rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
+            rb.AddForce(0, force, 0, ForceMode.Impulse);
         }
     }    
 
