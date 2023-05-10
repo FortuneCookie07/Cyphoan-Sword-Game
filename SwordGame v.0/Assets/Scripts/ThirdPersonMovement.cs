@@ -24,9 +24,15 @@ public class ThirdPersonMovement : MonoBehaviour
     float turnSmoothVelocity;
 
     public bool debugFlag = false; 
+    private bool slideCoolDown = false; 
+    private float slideCoolDownTimer = 2f; 
+    public float slideCoolDownDur = 2f; 
     private bool isRun = false; 
     private bool isSlide = false; 
-    public float slideTimer = 0f; 
+    public float slideDur = 2f;
+    private float slideTimer = 0; 
+    
+
 
     void Start()
     {
@@ -83,40 +89,8 @@ public class ThirdPersonMovement : MonoBehaviour
             }
             
             //Sliding Code
-            if(isRun && controller.isGrounded && Input.GetKeyDown(KeyCode.V) && !isSlide)
-            {
-                speed = slideSpeed; 
-                isSlide = true; 
-                if (debugFlag)
-                    Debug.Log("slide start");
-            }
-            if (isSlide && controller.isGrounded)
-            {
-                slideTimer += Time.deltaTime; 
-                if (slideTimer > 2f)
-                {
-                    isSlide = false;
-                    slideTimer = 0f;
-                    speed = runSpeed;
-                    if (debugFlag)
-                        Debug.Log("slide end");
-                }
-            }
-            if (isSlide && !controller.isGrounded)
-            {
-                isSlide = false;
-                slideTimer = 0; 
-                if (debugFlag)
-                    Debug.Log("slide jump");
-            }
-            if(controller.isGrounded && speed == slideSpeed && !isSlide)
-            {
-                if(isRun)
-                    speed = runSpeed;
-                else
-                    speed = walkSpeed; 
-            }
-
+            playerSlide(); 
+            
             //moves mr dontai west in the direction our camera is facing
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
@@ -132,6 +106,55 @@ public class ThirdPersonMovement : MonoBehaviour
         */
     }
 
+    void playerSlide()
+    {
+        if(isRun && controller.isGrounded && Input.GetKeyDown(KeyCode.V) && !isSlide && speed == runSpeed && !slideCoolDown)
+            {
+                speed = slideSpeed; 
+                slideTimer = slideDur;
+                isSlide = true; 
+                if (debugFlag)
+                    Debug.Log("slide start");
+            }
+            if (isSlide && controller.isGrounded)
+            {
+                slideTimer -= Time.deltaTime; 
+                if (slideTimer < 0)
+                {
+                    isSlide = false;
+                    slideCoolDown = true;
+                    slideCoolDownTimer = slideCoolDownDur; 
+                    slideTimer = slideDur;
+                    speed = runSpeed;
+                    if (debugFlag)
+                        Debug.Log("slide end");
+                }
+            }
+            if (isSlide && !controller.isGrounded)
+            {
+                isSlide = false;
+                slideCoolDown = true; 
+                slideCoolDownTimer = slideCoolDownDur; 
+                slideTimer = slideDur; 
+                if (debugFlag)
+                    Debug.Log("slide jump");
+            }
+            if(controller.isGrounded && speed == slideSpeed && !isSlide)
+            {
+                if(isRun)
+                    speed = runSpeed;
+                else
+                    speed = walkSpeed; 
+            }
+            if (slideCoolDown)
+            {
+                if (slideCoolDownTimer < 0)
+                {
+                    slideCoolDown = false; 
+                }
+                slideCoolDownTimer -= Time.deltaTime; 
+            }
+    }
 
 
 }
