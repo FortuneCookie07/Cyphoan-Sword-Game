@@ -91,12 +91,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        /*
-        if(controller.isGrounded && Input.GetKeyUp(KeyCode.Space))
-        {
-            velocity.y += jumpForce;
-        }
-        */
+       
     }
 
     void playerSlide()
