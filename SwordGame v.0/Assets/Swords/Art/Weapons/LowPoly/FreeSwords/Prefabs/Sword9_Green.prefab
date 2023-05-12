@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6173539447594113013}
   m_Layer: 0
   m_Name: Sword9_Green
-  m_TagString: Untagged
+  m_TagString: sword_t
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

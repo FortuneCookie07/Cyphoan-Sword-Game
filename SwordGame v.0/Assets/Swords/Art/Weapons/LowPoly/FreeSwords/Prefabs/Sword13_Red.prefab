@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4682383194484498614}
   m_Layer: 0
   m_Name: Sword13_Red
-  m_TagString: Untagged
+  m_TagString: sword_t
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

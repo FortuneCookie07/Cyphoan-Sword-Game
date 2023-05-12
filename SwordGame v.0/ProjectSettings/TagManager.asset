@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - terrain_t
+  - sword_t
   layers:
   - Default
   - TransparentFX

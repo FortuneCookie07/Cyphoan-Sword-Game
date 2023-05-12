@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8181556591670340476}
   m_Layer: 0
   m_Name: Sword15_Iron
-  m_TagString: Untagged
+  m_TagString: sword_t
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
