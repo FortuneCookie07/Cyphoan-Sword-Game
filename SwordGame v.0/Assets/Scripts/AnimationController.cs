@@ -7,41 +7,46 @@ public class AnimationController : MonoBehaviour
 {
     Animator animator;
     int isWalkingHash;
+    int isBackingHash;
     int isRunningHash;
     int isJumpingHash;
     int isSlashingHash;
-    int highSpinHash;
+    int leftWalkStrafingHash;
+    int rightWalkStrafingHash;
 
     public bool animatorDebug = false;
-
-    //static Timer myTimer = new Timer(2000);
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         isWalkingHash = Animator.StringToHash("isWalking");
+        isBackingHash = Animator.StringToHash("isBacking");
         isRunningHash = Animator.StringToHash("isRunning");
         isJumpingHash = Animator.StringToHash("isJumping");
         isSlashingHash = Animator.StringToHash("isSlashing");
-        highSpinHash = Animator.StringToHash("highSpin");
+        leftWalkStrafingHash = Animator.StringToHash("leftWalkStrafing");
+        rightWalkStrafingHash = Animator.StringToHash("rightWalkStrafing");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         bool isWalking = animator.GetBool(isWalkingHash);
+        bool isBacking = animator.GetBool(isBackingHash);
         bool isRunning = animator.GetBool(isRunningHash); 
         bool isJumping = animator.GetBool(isJumpingHash);
         bool isSlashing = animator.GetBool(isSlashingHash);
-        bool highSpin = animator.GetBool(highSpinHash);
+        bool leftWalkStrafing = animator.GetBool(leftWalkStrafingHash);
+        bool rightWalkStrafing = animator.GetBool(rightWalkStrafingHash);
 
         bool forwardPressed = Input.GetKey("w");
+        bool backwardPressed = Input.GetKey("s");
         bool runPressed = Input.GetKey("left shift");
         bool jumpPressed = Input.GetKey("space");
         bool slashPressed = Input.GetMouseButtonDown(0);
-        bool highSpinPressed = Input.GetKeyDown(KeyCode.F);
+        float leftWalkStrafePressed = Input.GetAxis("Horizontal");
+        float rightWalkStrafePressed = Input.GetAxis("Horizontal");
 
         //1 - when player presses w
         if (!isWalking && forwardPressed)
@@ -123,12 +128,37 @@ public class AnimationController : MonoBehaviour
             animDebug("11");
         }
 
-        if (highSpinPressed)
+        //12 - when the player walks backwards
+        if (backwardPressed)
         {
-            animator.SetBool(highSpinHash, true);
-
-            animDebug("high spin");
+            animator.SetBool(isBackingHash, true);
+            animDebug("12");
         }
+
+        //13 - when the player lets go of s
+        if(!backwardPressed)
+        {
+            animator.SetBool(isBackingHash, false);
+            animDebug("13");
+        }
+
+        //14 - when the player strafes left 
+        if ((leftWalkStrafePressed < 0) && !leftWalkStrafing)
+        {
+            animator.SetBool(leftWalkStrafingHash, true);
+            animDebug("14");
+        }
+        else 
+            animator.SetBool(leftWalkStrafingHash, false);
+
+        //15 - when the player strafes right
+        if ((rightWalkStrafePressed > 0) && !rightWalkStrafing)
+        {
+            animator.SetBool(rightWalkStrafingHash, true);
+            animDebug("15");
+        }
+        else 
+            animator.SetBool(rightWalkStrafingHash, false);
     }
 
     void animDebug(string input)
