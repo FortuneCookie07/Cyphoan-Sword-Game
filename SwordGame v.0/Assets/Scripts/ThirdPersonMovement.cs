@@ -46,12 +46,11 @@ public class ThirdPersonMovement : MonoBehaviour
     void Update()
     {
         //adds gravity to the player
-        
         controller.Move(velocity * Time.deltaTime);
         velocity.y += gravity * Time.deltaTime;
  
         //took me an hour to find out how to implement jump
-        if (controller.isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (controller.isGrounded && Input.GetButtonDown("Jump"))
         {
             float jumpVelocity = Mathf.Sqrt(jumpForce * -2f * gravity);
             velocity.y = jumpVelocity;
