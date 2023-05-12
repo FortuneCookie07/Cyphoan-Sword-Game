@@ -117,13 +117,11 @@ public class AnimationController : MonoBehaviour
         }
 
         //11 - when the player lets go of left click
-        /*
         if (!slashPressed)
         {
             animator.SetBool(isSlashingHash, false);
             animDebug("11");
         }
-        */
 
         if (highSpinPressed)
         {
