@@ -194,11 +194,11 @@ MonoBehaviour:
   walkSpeed: 12
   runSpeed: 24
   slideSpeed: 35
-  jumpForce: 3
+  jumpForce: 2
   gravity: -25
   gravityMultiplier: 1
   turnSmoothTime: 0.1
-  debugFlag: 1
+  debugFlag: 0
   slideCoolDownDur: 2
   slideDur: 1
 --- !u!1001 &142426678
@@ -3040,6 +3040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc0ebdc7d21d994e914e02b1106e80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animatorDebug: 0
 --- !u!95 &1835610384
 Animator:
   serializedVersion: 5
@@ -3246,7 +3247,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870227546}
-  m_LocalRotation: {x: 0.09637958, y: 4.3581963e-16, z: -6.018224e-17, w: 0.99534464}
+  m_LocalRotation: {x: 0.096379586, y: -0.000000007415896, z: 7.180839e-10, w: 0.99534464}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
