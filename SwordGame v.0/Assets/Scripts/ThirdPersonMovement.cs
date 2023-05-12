@@ -9,6 +9,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private float speed = 12f;
 
+    public float strafeSpeed = 6f; 
     public float walkSpeed = 12f;
     public float runSpeed = 24f; 
     public float slideSpeed = 30f; 
@@ -29,6 +30,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public float slideCoolDownDur = 2f; 
     private bool isRun = false; 
     private bool isSlide = false; 
+    private bool isStrafingLeft = false;
+    private bool isStrafingRight = false;
     public float slideDur = 2f;
     private float slideTimer = 0; 
     
@@ -71,13 +74,16 @@ public class ThirdPersonMovement : MonoBehaviour
 
             //some complex ass movement direction bullshit
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+
+            //Strafe
+            playerStrafe();
             
             //shift to sprint but only when on the ground (no midair movement increase...theoretically)
             playerRun(); 
             
             //Sliding Code
             playerSlide(); 
-            
+
             //moves mr dontai west in the direction our camera is facing
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
@@ -146,20 +152,65 @@ public class ThirdPersonMovement : MonoBehaviour
     void playerRun()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && controller.isGrounded)
-            {
-                isRun = true; 
-                speed = runSpeed;
-                if (debugFlag)
-                    Debug.Log("is running");
-            }
-            if (Input.GetKeyUp(KeyCode.LeftShift) && controller.isGrounded && isRun)
-            {
-                isRun = false;
-                speed = walkSpeed; 
-                if (debugFlag)
-                    Debug.Log("is not running");
-            }
+        {
+            isRun = true; 
+            speed = runSpeed;
+            if (debugFlag)
+                Debug.Log("is running");
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) && controller.isGrounded && isRun)
+        {
+            isRun = false;
+            speed = walkSpeed; 
+            if (debugFlag)
+                Debug.Log("is not running");
+        }
     }
 
+    void playerStrafe()
+    {
+        if(!Input.GetKeyDown(KeyCode.W))
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                isStrafingLeft = true;
+                isStrafingRight = false;
+                speed = strafeSpeed;
+                Debug.Log("Left Strafe");
+                // Move the player to the left
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                isStrafingLeft = false;
+                isStrafingRight = true;
+                speed = strafeSpeed;
+                Debug.Log("Right Strafe");
+                // Move the player to the right
+            }
+            else
+            {
+                isStrafingLeft = false;
+                isStrafingRight = false;
+                // Stop moving the player
+            }
+        }
 
+         if(!isRun && controller.isGrounded && !isSlide && !isStrafingLeft && !isStrafingRight)
+         {
+            speed = walkSpeed;
+            Debug.Log("Walking");
+         }
+
+        if(isStrafingLeft && Input.GetKeyUp(KeyCode.A))
+        {
+            isStrafingLeft = false;
+            speed = walkSpeed;
+        }
+
+        if(isStrafingRight && Input.GetKeyUp(KeyCode.D))
+        {
+            isStrafingRight = false;
+            speed = walkSpeed;
+        }
+    }
 }
