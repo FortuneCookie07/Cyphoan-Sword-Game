@@ -54,6 +54,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             float jumpVelocity = Mathf.Sqrt(jumpForce * -2f * gravity);
             velocity.y = jumpVelocity;
+            Debug.Log("jump");
         }
 
         //this is getting the input hopefully Unity doesn't hoe us because this method is kind of "outdated"
@@ -198,7 +199,7 @@ public class ThirdPersonMovement : MonoBehaviour
          if(!isRun && controller.isGrounded && !isSlide && !isStrafingLeft && !isStrafingRight)
          {
             speed = walkSpeed;
-            Debug.Log("Walking");
+            //Debug.Log("Walking");
          }
 
         if(isStrafingLeft && Input.GetKeyUp(KeyCode.A))
