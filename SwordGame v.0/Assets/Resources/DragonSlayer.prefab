@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8083540664545916485}
   m_Layer: 0
   m_Name: DragonSlayer
-  m_TagString: Untagged
+  m_TagString: sword_t
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

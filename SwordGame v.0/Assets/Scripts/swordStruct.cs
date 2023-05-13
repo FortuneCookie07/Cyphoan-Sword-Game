@@ -53,7 +53,6 @@ public class swordStruct : MonoBehaviour
             { "Medium", 2 },
             { "Large", 3 }
         };
-        playerSword = new Sword("Yone", 10, pElement.Fire, sElement.None, "Medium", GameObject.Find("YoneLeagueSword"));
         animator = GetComponent<Animator>(); 
     }
 
@@ -61,11 +60,7 @@ public class swordStruct : MonoBehaviour
     {
         if (animator.GetBool("isSlashing"))
         {
-            playerSword.prefab.GetComponent<MeshCollider>().enabled = true; 
-        }
-        else
-        {
-            playerSword.prefab.GetComponent<MeshCollider>().enabled = false; 
+             
         }
     }
 }
