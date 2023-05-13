@@ -50,7 +50,7 @@ public class ThirdPersonMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
  
         //took me an hour to find out how to implement jump
-        if (controller.isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (controller.isGrounded && Input.GetButtonDown("Jump"))
         {
             float jumpVelocity = Mathf.Sqrt(jumpForce * -2f * gravity);
             velocity.y = jumpVelocity;
@@ -83,7 +83,7 @@ public class ThirdPersonMovement : MonoBehaviour
             playerRun(); 
             
             //Sliding Code
-            playerSlide(); 
+            //playerSlide(); 
 
             //moves mr dontai west in the direction our camera is facing
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
@@ -150,16 +150,17 @@ public class ThirdPersonMovement : MonoBehaviour
             }
     }
 
+    
     void playerRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && controller.isGrounded)
+        if (Input.GetButtonDown("Run") && controller.isGrounded)
         {
             isRun = true; 
             speed = runSpeed;
             if (debugFlag)
                 Debug.Log("is running");
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift) && controller.isGrounded && isRun)
+        if (Input.GetButtonUp("Run") && controller.isGrounded && isRun)
         {
             isRun = false;
             speed = walkSpeed; 
@@ -172,21 +173,19 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if(!Input.GetKeyDown(KeyCode.W))
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+            if (horizontalInput < 0)
             {
                 isStrafingLeft = true;
                 isStrafingRight = false;
-                speed = strafeSpeed;
                 Debug.Log("Left Strafe");
-                // Move the player to the left
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (horizontalInput > 0)
             {
                 isStrafingLeft = false;
                 isStrafingRight = true;
-                speed = strafeSpeed;
                 Debug.Log("Right Strafe");
-                // Move the player to the right
             }
             else
             {
@@ -202,15 +201,12 @@ public class ThirdPersonMovement : MonoBehaviour
             //Debug.Log("Walking");
          }
 
-        if(isStrafingLeft && Input.GetKeyUp(KeyCode.A))
+        if(!isRun && controller.isGrounded && !isSlide && (isStrafingLeft || isStrafingRight))
         {
-            isStrafingLeft = false;
-            speed = walkSpeed;
+            speed = strafeSpeed;
         }
-
-        if(isStrafingRight && Input.GetKeyUp(KeyCode.D))
+        else if(!isRun && controller.isGrounded && !isSlide)
         {
-            isStrafingRight = false;
             speed = walkSpeed;
         }
     }
