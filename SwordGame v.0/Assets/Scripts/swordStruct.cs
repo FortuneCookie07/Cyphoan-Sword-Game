@@ -43,6 +43,7 @@ public class swordStruct : MonoBehaviour
 {
     public static Dictionary<string, int> sizeCooldowns_d;
     public static Sword playerSword; 
+    Animator animator; 
     // Start is called before the first frame update
     void Start()
     {
@@ -52,11 +53,19 @@ public class swordStruct : MonoBehaviour
             { "Medium", 2 },
             { "Large", 3 }
         };
-        playerSword = new Sword("Yone", 10, pElement.Fire, sElement.None, "Medium", Resources.Load<GameObject>("YoneLeagueSword"));
+        playerSword = new Sword("Yone", 10, pElement.Fire, sElement.None, "Medium", GameObject.Find("YoneLeagueSword"));
+        animator = GetComponent<Animator>(); 
     }
 
     void Update()
     {
-        
+        if (animator.GetBool("isSlashing"))
+        {
+            playerSword.prefab.GetComponent<MeshCollider>().enabled = true; 
+        }
+        else
+        {
+            playerSword.prefab.GetComponent<MeshCollider>().enabled = false; 
+        }
     }
 }
