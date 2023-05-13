@@ -8,16 +8,17 @@ public struct Sword
     public int damage;
     public pElement primaryElem; 
     public sElement secondaryElem;
-    public Dictionary<string,float> sizeCooldowns;
+    //"Small", "Medium", or "Large"
+    public string size;
     public GameObject prefab;
 
-    public Sword(string _name, int _damage, pElement _primaryElem, sElement _secondaryElem, Dictionary<string,float> _sizeCooldowns,  GameObject _prefab)
+    public Sword(string _name, int _damage, pElement _primaryElem, sElement _secondaryElem, string _size,  GameObject _prefab)
     {
         name = _name;
         damage = _damage;
         primaryElem = _primaryElem;
         secondaryElem = _secondaryElem;
-        sizeCooldowns = _sizeCooldowns;
+        size = _size;
         prefab = _prefab;
     }
 }
@@ -41,7 +42,7 @@ public enum sElement
 public class swordStruct : MonoBehaviour
 {
     public static Dictionary<string, int> sizeCooldowns_d;
-
+    public static Sword playerSword; 
     // Start is called before the first frame update
     void Start()
     {
@@ -51,5 +52,11 @@ public class swordStruct : MonoBehaviour
             { "Medium", 2 },
             { "Large", 3 }
         };
+        playerSword = new Sword("Yone", 10, pElement.Fire, sElement.None, "Medium", Resources.Load<GameObject>("YoneLeagueSword"));
+    }
+
+    void Update()
+    {
+        
     }
 }
