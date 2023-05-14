@@ -179,13 +179,15 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 isStrafingLeft = true;
                 isStrafingRight = false;
-                Debug.Log("Left Strafe");
+                if (debugFlag)
+                    Debug.Log("Left Strafe");
             }
             else if (horizontalInput > 0)
             {
                 isStrafingLeft = false;
                 isStrafingRight = true;
-                Debug.Log("Right Strafe");
+                if (debugFlag)
+                    Debug.Log("Right Strafe");
             }
             else
             {
