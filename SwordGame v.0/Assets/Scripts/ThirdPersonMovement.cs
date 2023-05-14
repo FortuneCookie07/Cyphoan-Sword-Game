@@ -7,10 +7,10 @@ public class ThirdPersonMovement : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
 
-    private float speed = 12f;
+    private float speed = 8f;
 
-    public float strafeSpeed = 6f; 
-    public float walkSpeed = 12f;
+    public float strafeSpeed = 5f; 
+    public float walkSpeed = 8f;
     public float runSpeed = 24f; 
     public float slideSpeed = 30f; 
     
