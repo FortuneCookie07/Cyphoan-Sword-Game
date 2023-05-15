@@ -21,6 +21,7 @@ public class enemyHitDetect : MonoBehaviour
         if(collision.CompareTag("sword_t"))
         {
             //Handle Damage and any other damage things
+            Debug.Log("Sword Collision");
         }
     }
 }
