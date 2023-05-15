@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class meshController : MonoBehaviour
 {
+    /*
+        Eventually we need to change it from GameObject.Find to something more general
+    */
+    private MeshCollider mesh; 
     public void meshEnable()
     {
-        GameObject.Find("YoneLeagueSword").GetComponent<MeshCollider>().enabled = true; 
+        mesh = swordStruct.playerSword.prefab.GetComponent<MeshCollider>();
+        mesh.enabled = true; 
     }
 
     public void meshDisable()
     {
-        GameObject.Find("YoneLeagueSword").GetComponent<MeshCollider>().enabled = false; 
+        mesh.enabled = false; 
     }
 }

@@ -54,6 +54,7 @@ public class swordStruct : MonoBehaviour
             { "Large", 3 }
         };
         animator = GetComponent<Animator>(); 
+        playerSword = new Sword("Yone", 10, pElement.Fire, sElement.None, "Medium", GameObject.Find("YoneLeagueSword"));
     }
 
     void Update()
