@@ -60,7 +60,11 @@ public class swordStruct : MonoBehaviour
     {
         if (animator.GetBool("isSlashing"))
         {
-             
+             GameObject.Find("YoneLeagueSword").GetComponent<MeshCollider>().enabled = true; 
+        }
+        else
+        {
+            GameObject.Find("YoneLeagueSword").GetComponent<MeshCollider>().enabled = false; 
         }
     }
 }
