@@ -8,8 +8,19 @@ public class enemyHitDetect : MonoBehaviour
     {
         if(collision.CompareTag("sword_t"))
         {
+            //Get the enemyHealth class from the enemyHealth script
+            enemyHealth eHealth = gameObject.GetComponent<enemyHealth>(); 
             //Handle Damage and any other damage things
-            Debug.Log("Sword Collision");
+            if(eHealth != null)
+            {
+                Debug.Log("Object Exists"); 
+                eHealth.TakeDamage(swordStruct.playerSword.damage);
+            }
+            else
+            {
+                Debug.Log("No Object");
+            }
+            Debug.Log("Sword Collision And Damage");
         }
     }
 }

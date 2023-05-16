@@ -50814,7 +50814,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.6666666
+  - time: 1.2666667
     functionName: meshDisable
     data: 
     objectReferenceParameter: {fileID: 0}
