@@ -43,7 +43,6 @@ public class swordStruct : MonoBehaviour
 {
     public static Dictionary<string, int> sizeCooldowns_d;
     public static Sword playerSword; 
-    Animator animator; 
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +52,6 @@ public class swordStruct : MonoBehaviour
             { "Medium", 2 },
             { "Large", 3 }
         };
-        animator = GetComponent<Animator>(); 
         playerSword = new Sword("Yone", 10, pElement.Fire, sElement.None, "Medium", GameObject.Find("YoneLeagueSword"));
     }
 

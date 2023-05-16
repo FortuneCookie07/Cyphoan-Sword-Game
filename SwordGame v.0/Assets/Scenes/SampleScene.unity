@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 89551635}
   - component: {fileID: 89551636}
   - component: {fileID: 89551637}
+  - component: {fileID: 89551638}
   m_Layer: 0
   m_Name: Dontai West
   m_TagString: Player
@@ -263,6 +264,18 @@ MonoBehaviour:
   debugFlag: 0
   slideCoolDownDur: 2
   slideDur: 1
+--- !u!114 &89551638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89551634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b127f3ffd647c47aab551fa47c6c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &132825177
 GameObject:
   m_ObjectHideFlags: 0
@@ -8761,18 +8774,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1835610385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835610380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1b127f3ffd647c47aab551fa47c6c0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1835610386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8783,6 +8784,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d3b7c40810f7c948bc932e4caec9f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1835610387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835610380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae4a487a186b954391da7775d85c5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1835695074

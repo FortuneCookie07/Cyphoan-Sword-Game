@@ -34,7 +34,6 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool isStrafingRight = false;
     public float slideDur = 2f;
     private float slideTimer = 0; 
-    
 
 
     void Start()
@@ -50,12 +49,7 @@ public class ThirdPersonMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
  
         //took me an hour to find out how to implement jump
-        if (controller.isGrounded && Input.GetButtonDown("Jump"))
-        {
-            float jumpVelocity = Mathf.Sqrt(jumpForce * -2f * gravity);
-            velocity.y = jumpVelocity;
-            Debug.Log("jump");
-        }
+        playerJump(); 
 
         //this is getting the input hopefully Unity doesn't hoe us because this method is kind of "outdated"
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -65,7 +59,7 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         //makes it to where player moves in the direction they're facing IF AND ONLY IF they are actually moving
-        if (direction.magnitude >= 0.1f) 
+        if (direction.magnitude >= 0.1f && !attackPause.isAnimation) 
         {
             //arctan function dictates which direction/angle our character is moving in and it should in turn rotate him the correct amount
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -148,6 +142,16 @@ public class ThirdPersonMovement : MonoBehaviour
                 }
                 slideCoolDownTimer -= Time.deltaTime; 
             }
+    }
+
+    void playerJump()
+    {
+        if (controller.isGrounded && Input.GetButtonDown("Jump") && !attackPause.isAnimation)
+        {
+            float jumpVelocity = Mathf.Sqrt(jumpForce * -2f * gravity);
+            velocity.y = jumpVelocity;
+            Debug.Log("jump");
+        }
     }
 
     
