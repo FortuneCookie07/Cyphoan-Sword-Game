@@ -10,14 +10,24 @@ public class MeshGenerator : MonoBehaviour
     Vector3 [] vertices;
     int[] triangles;
 
-    public int xSize = 20;
-    public int zSize = 20;
+    public int xSize = 30;
+    public int zSize = 30;
+
+    public float heightScale = 2f;
+    public float perlinScale = 0.3f;
+    public float offsetX = 100f;
+    public float offsetZ = 100f;
 
     // Start is called before the first frame update
     void Start()
     {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
+
+        heightScale = Random.Range(1f, 3f);
+        //perlinScale = Random.Range(0.1f, 0.7f);
+        offsetX = Random.Range(0f, 99999f);
+        offsetZ = Random.Range(0f, 99999f);
 
         CreateShape();
         UpdateMesh();
@@ -37,7 +47,7 @@ public class MeshGenerator : MonoBehaviour
         {
             for (int x = 0; x <= xSize; x++)
             {
-                float y = Mathf.PerlinNoise(x * .3f, z * .3f) * 2f;
+                float y = Mathf.PerlinNoise(x * perlinScale + offsetX, z * perlinScale + offsetZ) * heightScale;
                 vertices[i] = new Vector3(x, y, z);
                 i++;
             }
