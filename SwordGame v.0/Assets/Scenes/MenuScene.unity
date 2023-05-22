@@ -620,8 +620,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158748943}
-  m_LocalRotation: {x: -0.022712188, y: -0.8116369, z: -0.031626724, w: 0.5828632}
-  m_LocalPosition: {x: 539.00604, y: 1.3827381, z: 517.7696}
+  m_LocalRotation: {x: -0.12039673, y: 0.15907046, z: 0.019548327, w: 0.9797036}
+  m_LocalPosition: {x: 538.627, y: 0.91873837, z: 513.6776}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1349,7 +1349,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580454704}
-  m_LocalRotation: {x: -0.12039675, y: 0.15907048, z: 0.01954833, w: 0.9797036}
+  m_LocalRotation: {x: -0.12039673, y: 0.15907046, z: 0.019548327, w: 0.9797036}
   m_LocalPosition: {x: 6.98, y: 6.86, z: 14.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1681,6 +1681,7 @@ GameObject:
   - component: {fileID: 785600066}
   - component: {fileID: 785600065}
   - component: {fileID: 785600067}
+  - component: {fileID: 785600068}
   m_Layer: 5
   m_Name: Quit Button
   m_TagString: Untagged
@@ -1804,6 +1805,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 785600068}
+        m_TargetAssemblyTypeName: QuitApplication, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &785600068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785600063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003f4d32c222152409a3697f03c4adb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &802775205
 GameObject:
   m_ObjectHideFlags: 3
@@ -4801,7 +4826,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973476267}
-  m_LocalRotation: {x: -0.022712188, y: -0.8116369, z: -0.031626724, w: 0.5828632}
+  m_LocalRotation: {x: -0.0227122, y: -0.8116369, z: -0.031626742, w: 0.5828632}
   m_LocalPosition: {x: 7.359009, y: 7.324, z: 18.411987}
   m_LocalScale: {x: 0.9999998, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
