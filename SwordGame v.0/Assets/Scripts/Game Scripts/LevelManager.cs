@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
+    [SerializeField] private GameObject _loaderCanvas;
+    [SerializeField] private GameObject _progressBar;
 
     void Awake() {
         if (Instance == null){
@@ -19,17 +21,26 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public async void LoadScene(string sceneName){
+    public void LoadScene(string sceneName)
+    {
+        StartCoroutine(LoadSceneAsync(sceneName));   
+    }
 
-        var scene = SceneManager.LoadSceneAsync(sceneName);
-        scene.allowSceneActivation = false; 
+    IEnumerator LoadSceneAsync(string sceneName)
+    {
+        AsyncOperation scene = SceneManager.LoadSceneAsync(sceneName);
 
-        do {
-             
-        } while (scene.progress < 0.9f);
+        _loaderCanvas.SetActive(true);
 
-        await Task.Delay(1000);
+        while(!scene.isDone)
+        {
+            float progressValue = Mathf.Clamp01(scene.progress / 0.9f);
 
-        scene.allowSceneActivation = true; 
+            _progressBar.GetComponent<Slider>().value = progressValue;
+
+            yield return null; 
+        }
+
+        _loaderCanvas.SetActive(false);
     }
 }
