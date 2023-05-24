@@ -5,8 +5,7 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance; 
-    
+    public static GameManager Instance;  
     public GameState State; 
     
     public static event Action<GameState> OnGameStateChanged; 

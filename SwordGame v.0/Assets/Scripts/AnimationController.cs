@@ -115,7 +115,7 @@ public class AnimationController : MonoBehaviour
         }
 
         //10 - when the player left clicks
-        if (slashPressed)
+        if (slashPressed && !SwordSelect.isSelecting)
         {
             animator.SetBool(isSlashingHash, true);
             animDebug("10");
