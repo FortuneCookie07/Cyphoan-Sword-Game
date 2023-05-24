@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject _loaderCanvas;
     [SerializeField] private GameObject _progressBar;
 
+    //Keeps this object in existence for all scenes
     void Awake() {
         if (Instance == null){
             Instance = this; 
