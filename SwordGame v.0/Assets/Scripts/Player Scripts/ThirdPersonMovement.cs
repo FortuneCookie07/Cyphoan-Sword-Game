@@ -35,12 +35,6 @@ public class ThirdPersonMovement : MonoBehaviour
     public float slideDur = 2f;
     private float slideTimer = 0; 
 
-
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
