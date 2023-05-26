@@ -15,6 +15,7 @@ public class SwordSelect : MonoBehaviour
         Cursor.visible = false;
         _swordSelectCanvas.SetActive(false);
         isSelecting = false;
+        SwordManager.swordInit();
     }
 
     void Start() 

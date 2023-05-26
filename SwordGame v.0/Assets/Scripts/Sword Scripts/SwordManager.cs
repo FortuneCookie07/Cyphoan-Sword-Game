@@ -41,13 +41,25 @@ public enum sElement
 
 public class SwordManager : MonoBehaviour
 {
-    public static Dictionary<string, int> sizeCooldowns_d;
-
+    public Dictionary<string, int> sizeCooldowns_d;
+    public static SwordManager Instance; 
     //Will serve as the current sword the player has in hand
     public static Sword playerSword; 
 
     //Will Store all the playable swords into an array
     public GameObject[] swordArr; 
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -57,6 +69,11 @@ public class SwordManager : MonoBehaviour
             { "Medium", 2 },
             { "Large", 3 }
         };
-        playerSword = new Sword("Yone", 10, pElement.Fire, sElement.None, "Medium", GameObject.Find("YoneLeagueSword"));
+    }
+
+    public static void swordInit()
+    {
+        Instance.swordArr[SwordSelect.swordSelection].SetActive(true);
+        playerSword = new Sword("TBD", 10, pElement.Fire, sElement.None, "Medium", Instance.swordArr[SwordSelect.swordSelection]);
     }
 }
