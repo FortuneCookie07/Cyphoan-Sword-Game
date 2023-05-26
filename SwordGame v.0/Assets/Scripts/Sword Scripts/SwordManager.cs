@@ -39,11 +39,16 @@ public enum sElement
     Steel
 }
 
-public class swordStruct : MonoBehaviour
+public class SwordManager : MonoBehaviour
 {
     public static Dictionary<string, int> sizeCooldowns_d;
+
+    //Will serve as the current sword the player has in hand
     public static Sword playerSword; 
-    // Start is called before the first frame update
+
+    //Will Store all the playable swords into an array
+    public GameObject[] swordArr; 
+
     void Start()
     {
         sizeCooldowns_d = new Dictionary<string, int>
@@ -53,10 +58,5 @@ public class swordStruct : MonoBehaviour
             { "Large", 3 }
         };
         playerSword = new Sword("Yone", 10, pElement.Fire, sElement.None, "Medium", GameObject.Find("YoneLeagueSword"));
-    }
-
-    void Update()
-    {
-        
     }
 }

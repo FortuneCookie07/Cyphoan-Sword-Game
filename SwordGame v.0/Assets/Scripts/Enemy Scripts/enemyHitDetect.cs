@@ -14,7 +14,7 @@ public class enemyHitDetect : MonoBehaviour
             if(eHealth != null)
             {
                 Debug.Log("Object Exists"); 
-                eHealth.TakeDamage(swordStruct.playerSword.damage);
+                eHealth.TakeDamage(SwordManager.playerSword.damage);
             }
             else
             {

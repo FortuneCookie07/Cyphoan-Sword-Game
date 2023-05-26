@@ -10,7 +10,7 @@ public class meshController : MonoBehaviour
     private MeshCollider mesh; 
     public void meshEnable()
     {
-        mesh = swordStruct.playerSword.prefab.GetComponent<MeshCollider>();
+        mesh = SwordManager.playerSword.prefab.GetComponent<MeshCollider>();
         mesh.enabled = true; 
     }
 
