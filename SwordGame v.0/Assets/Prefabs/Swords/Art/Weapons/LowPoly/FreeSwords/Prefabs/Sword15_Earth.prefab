@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4669778101875308864}
   - component: {fileID: 7433918205971402122}
   - component: {fileID: -7243850707975821169}
+  - component: {fileID: 8117480312095116651}
   m_Layer: 0
   m_Name: Sword15_Earth
   m_TagString: sword_t
@@ -98,3 +99,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6060968266713717718, guid: ca3efc9aae68e2c4b82574617a4bf176, type: 3}
+--- !u!114 &8117480312095116651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8947079371753237599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1e7a4318b68454a9b2e24eca853821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordName: 
+  damage: 20
+  attackSpeed: 0
+  primaryElement: 0
+  secondaryElement: 3

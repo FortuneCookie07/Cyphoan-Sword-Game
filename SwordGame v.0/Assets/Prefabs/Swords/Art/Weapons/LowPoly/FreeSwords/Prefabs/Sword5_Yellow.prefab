@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 57436481298468734}
   - component: {fileID: 2821779378782960564}
   - component: {fileID: -7781810462014166121}
+  - component: {fileID: -2567173122508589122}
   m_Layer: 0
   m_Name: Sword5_Yellow
   m_TagString: sword_t
@@ -98,3 +99,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1685661997809985041, guid: 26317383b8bbd254cb668812e676670b, type: 3}
+--- !u!114 &-2567173122508589122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4334720229974137441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1e7a4318b68454a9b2e24eca853821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordName: 
+  damage: 20
+  attackSpeed: 0
+  primaryElement: 0
+  secondaryElement: 3

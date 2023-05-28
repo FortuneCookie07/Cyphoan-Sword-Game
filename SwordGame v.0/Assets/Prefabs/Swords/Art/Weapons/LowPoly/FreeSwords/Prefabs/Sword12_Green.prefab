@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3040785727729074503}
   - component: {fileID: 997544894451840397}
   - component: {fileID: -1242733778896459233}
+  - component: {fileID: 6272311616252529116}
   m_Layer: 0
   m_Name: Sword12_Green
   m_TagString: sword_t
@@ -98,3 +99,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1062120985105442271, guid: 57e71afe94c8e1e4d9b5a12c31bd1f83, type: 3}
+--- !u!114 &6272311616252529116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645786095522272344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1e7a4318b68454a9b2e24eca853821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordName: 
+  damage: 20
+  attackSpeed: 0
+  primaryElement: 0
+  secondaryElement: 3

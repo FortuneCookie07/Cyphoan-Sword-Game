@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 475492034342227015}
   - component: {fileID: 2413294112371374221}
   - component: {fileID: -4398592081597604090}
+  - component: {fileID: 4675668513914008405}
   m_Layer: 0
   m_Name: Sword14_Red
   m_TagString: sword_t
@@ -98,3 +99,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3961813556567730997, guid: 5e3ece6a343a3f04fa7bc7a3c7ce9e02, type: 3}
+--- !u!114 &4675668513914008405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214597693441333592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1e7a4318b68454a9b2e24eca853821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordName: 
+  damage: 20
+  attackSpeed: 0
+  primaryElement: 0
+  secondaryElement: 3

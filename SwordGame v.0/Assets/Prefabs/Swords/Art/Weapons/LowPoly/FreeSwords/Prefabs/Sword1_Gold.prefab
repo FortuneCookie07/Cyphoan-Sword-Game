@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5306628097022751573}
   - component: {fileID: 7944377688359503775}
   - component: {fileID: -4716027311619220146}
+  - component: {fileID: 7953679288140527174}
   m_Layer: 0
   m_Name: Sword1_Gold
   m_TagString: sword_t
@@ -98,3 +99,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4077779311563332892, guid: 1af6c9d4792b975498541f34267aefc6, type: 3}
+--- !u!114 &7953679288140527174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449004803641222730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1e7a4318b68454a9b2e24eca853821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordName: 
+  damage: 20
+  attackSpeed: 0
+  primaryElement: 0
+  secondaryElement: 3

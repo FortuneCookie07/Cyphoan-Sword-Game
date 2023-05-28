@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2817897293155836807}
   - component: {fileID: 72015681297995597}
   - component: {fileID: -751724255536485733}
+  - component: {fileID: -4457378645593999892}
   m_Layer: 0
   m_Name: Sword6_Yellow
   m_TagString: sword_t
@@ -98,3 +99,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6491172866446396767, guid: b614443038ba99640be88e740d27ec25, type: 3}
+--- !u!114 &-4457378645593999892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017372464273290904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1e7a4318b68454a9b2e24eca853821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordName: 
+  damage: 20
+  attackSpeed: 0
+  primaryElement: 0
+  secondaryElement: 3
