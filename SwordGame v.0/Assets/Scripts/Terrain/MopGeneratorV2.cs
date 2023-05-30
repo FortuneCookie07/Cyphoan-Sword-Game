@@ -39,6 +39,11 @@ public class MopGeneratorV2 : MonoBehaviour
 
         CreateShape();
         UpdateMesh();
+
+        // Add collider for the terrain
+        MeshCollider meshCollider = gameObject.AddComponent<MeshCollider>();
+        meshCollider.sharedMesh = mesh;
+        meshCollider.convex = false; // Adjust this property based on your needs
     }
 
     void Update()
