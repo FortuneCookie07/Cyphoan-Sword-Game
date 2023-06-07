@@ -10,12 +10,16 @@ public class SwordSelect : MonoBehaviour
 
     public void selectWeapon(int swordID)
     {
-        swordSelection = swordID; 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        _swordSelectCanvas.SetActive(false);
-        isSelecting = false;
-        SwordManager.swordInit();
+        if (SwordManager.Instance.swordArr[swordID].GetComponent<SwordStats>().swordCost <= MoneyManager.Instance.GetCurrentMoney())
+        {
+            MoneyManager.Instance.SubtractMoney(SwordManager.Instance.swordArr[swordID].GetComponent<SwordStats>().swordCost);
+            swordSelection = swordID; 
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            _swordSelectCanvas.SetActive(false);
+            isSelecting = false;
+            SwordManager.swordInit();
+        }
     }
 
     void Start() 

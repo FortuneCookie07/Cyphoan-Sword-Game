@@ -9,7 +9,7 @@ public class SwordStats : MonoBehaviour
     public float attackSpeed;
     public pElement primaryElement;
     public sElement secondaryElement;
-
+    public int swordCost; 
 }
 
 public enum pElement
